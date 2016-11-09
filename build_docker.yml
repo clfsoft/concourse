@@ -1,0 +1,24 @@
+resources:
+  - name: docker-source
+    type: git
+    source:
+      uri: https://github.com/clfsoft/concourse
+      branch: master
+
+- name: docker-repo
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: aucent4dev/springboot
+
+jobs:
+  - name: build-docker
+    serial: true
+    plan:
+      - get: docker-source
+        trigger: true
+      - put: docker-repo
+        params:
+          build: docker-source/docker/springboot
