@@ -12,4 +12,4 @@ ENV MAVEN_HOME /usr/share/maven
 
 COPY pom.xml /data/pom.xml
 
-RUN cd /data/ && mvn dependency:go-offline
+RUN cd /data/ && mvn dependency:resolve
