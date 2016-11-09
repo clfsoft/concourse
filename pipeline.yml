@@ -1,0 +1,13 @@
+resources:
+  - name: source
+    type: git
+    source:
+      uri: https://github.com/clfsoft/concourse
+      branch: master
+jobs:
+  - name: hello
+    plan:
+      - get: source
+        trigger: true
+      - task: helloworld
+        file: source/task_hello_world.yml
