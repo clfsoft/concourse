@@ -4,13 +4,7 @@ resources:
     source:
       uri: https://github.com/clfsoft/concourse
       branch: master
-  - name: docker-springboot
-    type: docker-image
-    source:
-      email: {{docker-hub-email}}
-      username: {{docker-hub-username}}
-      password: {{docker-hub-password}}
-      repository: aucnet4dev/springboot
+
   - name: docker-angular2
     type: docker-image
     source:
@@ -26,9 +20,6 @@ jobs:
       - get: docker-source
         trigger: false
       - aggregate:
-        - put: docker-springboot
-          params:
-            build: docker-source/docker/springboot
         - put: docker-angular2
           params:
             build: docker-source/docker/angular2
