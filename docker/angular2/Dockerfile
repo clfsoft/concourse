@@ -1,12 +1,8 @@
-FROM node:6.9.1-slim
+FROM aucnet4dev/angular2
 
-ENV CLI_VER 1.0.0-beta.19-3
-
-RUN npm install -g angular-cli@$CLI_VER && npm install -g node-gyp
-RUN npm cache clean
 RUN mkdir -p /data/ && cd /data  && ng --version
-RUN ng new demo -sn -sg && cd demo && pwd && ls -ll
-RUN ng init
+RUN ng new demo -sn -sg -dir /data/demo && cd /data/demo && pwd && ls -ll
+RUN cd /data/demo && ng init
 
 
 
