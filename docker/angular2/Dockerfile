@@ -1,6 +1,6 @@
 FROM aucnet4dev/angular2-cli
 
-RUN mkdir -p /data/demo && ng new demo -sn -sg -dir /data/demo && cd /data/demo  && npm install && ls node_modules/ -ll  && ng build && cd /data && mv demo/node_modules . && rm -rf demo
+RUN mkdir -p /data/ && ng new demo -sn -sg -dir /data/demo && cd /data/demo  && npm install && ls node_modules/ -ll  && ng build && cd /data && mv demo/node_modules . && rm -rf demo
 
 
 
