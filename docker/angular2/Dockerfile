@@ -1,4 +1,4 @@
-FROM node:6.9.1
+FROM node:6.9.1-slim
 
 ENV CLI_VER 1.0.0-beta.19-3
 
